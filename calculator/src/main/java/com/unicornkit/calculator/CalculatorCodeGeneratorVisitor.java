@@ -12,7 +12,7 @@ final class CalculatorCodeGeneratorVisitor extends CalculatorBaseVisitor<CodeSeg
         visit(ctx.operands.get(0));
         for (var index = 0; index < ctx.operators.size(); ++index) {
             visit(ctx.operands.get(index + 1));
-            var operator = ctx.add_op().get(index).getText();
+            var operator = ctx.operators.get(index).getText();
             switch (operator) {
                 case "+" -> code.add();
                 case "-" -> code.sub();
@@ -27,7 +27,7 @@ final class CalculatorCodeGeneratorVisitor extends CalculatorBaseVisitor<CodeSeg
         visit(ctx.operands.get(0));
         for (var index = 0; index < ctx.operators.size(); ++index) {
             visit(ctx.operands.get(index + 1));
-            var operator = ctx.mul_op().get(index).getText();
+            var operator = ctx.operators.get(index).getText();
             switch (operator) {
                 case "*" -> code.mul();
                 case "/" -> code.div();

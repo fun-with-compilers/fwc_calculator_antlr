@@ -10,7 +10,7 @@ final class CalculatorInterpreterVisitor extends CalculatorBaseVisitor<Long> {
         long result = visit(ctx.operands.get(0));
         for (var index = 0; index < ctx.operators.size(); ++index) {
             long operand = visit(ctx.operands.get(index + 1));
-            var operator = ctx.add_op().get(index).getText();
+            var operator = ctx.operators.get(index).getText();
             switch (operator) {
                 case "+" -> result += operand;
                 case "-" -> result -= operand;
@@ -25,7 +25,7 @@ final class CalculatorInterpreterVisitor extends CalculatorBaseVisitor<Long> {
         long result = visit(ctx.operands.get(0));
         for (var index = 0; index < ctx.operators.size(); ++index) {
             long operand = visit(ctx.operands.get(index + 1));
-            var operator = ctx.mul_op().get(index).getText();
+            var operator = ctx.operators.get(index).getText();
             switch (operator) {
                 case "*" -> result *= operand;
                 case "/" -> result /= operand;
