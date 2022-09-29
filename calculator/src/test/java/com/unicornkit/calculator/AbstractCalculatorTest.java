@@ -93,4 +93,9 @@ abstract class AbstractCalculatorTest {
     void testParens() {
         assertEquals(2 * (4 + 3) * 2, calculate("2*(4+3)*2"));
     }
+
+    @Test
+    void testComplex() {
+        assertEquals((1+2)*-0xA/(9-0x05), calculate("(1+2)*-0xA/(9-0x05)"));
+    }
 }
